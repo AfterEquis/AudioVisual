@@ -1,4 +1,4 @@
-name: Notion to GitHub Sync
+name: Notion to ShitHub Sync
 
 on:
   schedule:
@@ -14,10 +14,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Sync Notion to GitHub
+      - name: Sync Notion to ShitHub
         uses: victornpb/notion-jam@v0
         with:
-          NOTION_SECRET: ${{ secrets.NOTION_TOKEN }}
+          NOTION_SECRET: ${{ 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 }}
           FILTER_PROP: "Sincronizar"
           FILTER_VALUE: "true"
           CONVERT_PROP_CASE: snake
