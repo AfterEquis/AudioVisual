@@ -17,7 +17,7 @@ jobs:
       - name: Sync Notion to ShitHub
         uses: victornpb/notion-jam@v0
         with:
-          NOTION_SECRET: ${{ blablabla }}
+          NOTION_SECRET: ${{ secrets.NOTION_TOKEN }}
           FILTER_PROP: "Sincronizar"
           FILTER_VALUE: "true"
           CONVERT_PROP_CASE: snake
