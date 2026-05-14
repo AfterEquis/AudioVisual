@@ -1,0 +1,33 @@
+name: Notion to GitHub Sync
+
+on:
+  schedule:
+    - cron: '0 8 * * *' # Cada día a las 8:00 UTC (10:00 Madrid)
+  workflow_dispatch: # También permite ejecutarlo manualmente
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    name: Sync Notion pages to Markdown files
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Sync Notion to GitHub
+        uses: victornpb/notion-jam@v0
+        with:
+          NOTION_SECRET: ${{ secrets.NOTION_TOKEN }}
+          FILTER_PROP: "Sincronizar"
+          FILTER_VALUE: "true"
+          CONVERT_PROP_CASE: snake
+          ARTICLE_PATH: "Guiones/{title}.md"
+          ASSETS_PATH: "Guiones/assets/{file}"
+
+      - name: Commit y push de cambios
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "sync: actualizacion automatica desde Notion"
+          commit_user_name: "Notion Sync Bot"
+          commit_user_email: "actions@github.com"
+          file_pattern: "Guiones/**"
