@@ -4,4 +4,5 @@ Aqui van mis proyectos relacionados a edicion de video, fotografia y todo ese mu
 ## Canal de youtube
 https://www.youtube.com/@afterxesp
 
-# Cuenta de Instagram
+## Cuenta de Instagram
+https://www.instagram.com/afterxesp_/
